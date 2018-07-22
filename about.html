@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Le Notre Bistro | About</title>
+
+    <!-- mobile setup -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-title" content="Le Notre Bistro" />
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="./assets/css/libs/awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style-default.css">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+
+    <!-- Page description -->
+    <meta name="description" content="At Le Notre we strive to offer you a special experience with an emphasis on quality. Serving great food, and service with attention to details – our essentials.">
+
+    <!-- Facebook -->
+    <!-- <meta property="og:title" content="About" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="./about.html/" />
+    <meta property="og:description" content="Here the excerp for this page" /> -->
+
+    <!-- Twitter -->
+    <!-- <meta name="twitter:title" content="About" />
+    <meta name="twitter:description" content="Here the excerp for this page" /> -->
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0a132f">
+    <meta name="msapplication-TileColor" content="#0a132f">
+    <meta name="theme-color" content="#0a132f">
+</head>
+
+<body>
+
+    <!-- Top shadow -->
+    <div class="shadow"></div>
+    <!-- end top shadow -->
+
+    <!-- The splash screen -->
+    <div id="splash">
+        <div class="loader">
+            <img class="splash-logo" src="./assets/img/logo/logo-tr.png" alt="lenotre logo"/>
+            <div class="line"></div>
+        </div>
+    </div>
+    <!-- End of splash screen -->
+
+    <div id="wrapper">
+        <!-- main content -->
+        <main>
+            <!-- The header for content -->
+            <header class="detail">
+                <a href="/" class="back" data-transition="slide-from-top">
+                    <span></span>
+                </a>
+                <section>
+                    <h1>We love what we do, and have been at it for 20 years</h1>
+                </section>
+            </header>
+            <!-- end header -->
+            <div class="content-wrap">
+                <div class="content">
+                    <i class="icon bg icon-CommentwithLines"></i>
+                    <section>
+                        <header>
+                            <h2>About</h2>
+                            <h4 class="serif">We treat our guests with care, <br>and we strive to accommodate individual tastes</h4>
+                        </header>
+
+                        <section>
+                            <p>Le Notre is a 20 seat restaurant, offering seasonal driven menu with locally sourced ingredients</p>
+                            <p>At Le Notre we strive to offer you a special experience with an emphasis on quality. Serving great food, and service with attention to details – our essentials.</p>
+                            <p>Ingredients are carefully sourced, GMO free, local, and fresh.
+                            Wine - and other libations - are chosen with the same care. The selection is small, but well crafted.</p>
+                        </section>
+
+                        <footer>
+                            <div class="signature">
+                                <h6>Maitre D'</h6>
+                                <div class="maitred"></div>
+                                <h5>Serguei Kourokhtine</h5>
+                            </div>
+                        </footer>
+                        <div class="content social-icons">
+                          <a class="custom-fb" href="//www.facebook.com/LeNotreBistro/" target="_blank">
+                            <img class="social-fb" src="./assets/img/social-gold/facebook-2.svg" alt="Facebook">
+                          </a>
+                          <a href="//www.instagram.com/lenotre_bistro/" target="_blank"><img class="social-icon" src="./assets/img/social-gold/Instagram.svg" alt="Instagram"></a>
+                          <a href="//twitter.com/lenotre_bistro" target="_blank"><img class="social-icon" src="./assets/img/social-gold/Twitter.svg" alt="Twitter"></a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div data-remodal-id="modal">
+                <i class="icon bg icon-CommentwithLines"></i>
+                <button data-remodal-action="close" class="remodal-close"></button>
+                <p></p>
+                <div class="signature center">
+                    <h6>-CHEF-</h6>
+                    <h5>Pierre Gabant</h5>
+                </div>
+            </div>
+        </main>
+        <!-- end of main content -->
+        <div class="back-to-top"><i class="fa fa-angle-up back-to-top-icon"></i></div>
+    </div>
+
+<!-- The slideshow -->
+    <ul id="slideshow" data-speed="6000">
+      <li>
+          <img src="./assets/img/slideshow/dr.jpg" alt="restaurant interior" />
+      </li>
+      <li>
+          <img src="./assets/img/slideshow/newyork.jpg" alt="cocktail new york" />
+      </li>
+      <li>
+          <img src="./assets/img/slideshow/tartare.jpg" alt="beef tartare" />
+      </li>
+      <li>
+          <img src="./assets/img/slideshow/foie.jpg" alt="foie gras" />
+      </li>
+      <li>
+          <img src="./assets/img/slideshow/steal-head-tartare.jpg" alt="steal head tartare" />
+      </li>
+      <li>
+          <img src="./assets/img/slideshow/dr2.jpg" alt="restaurant interior" />
+      </li>
+    </ul>
+    <!-- end of slideshow -->
+
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+        <div class="pswp__bg"></div>
+
+        <!-- Slides wrapper with overflow:hidden. -->
+        <div class="pswp__scroll-wrap">
+
+            <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+            <div class="pswp__ui pswp__ui--hidden">
+
+                <div class="pswp__top-bar">
+
+                    <!--  Controls are self-explanatory. Order can be changed. -->
+
+                    <div class="pswp__counter"></div>
+
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                    <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- scripts -->
+    <script src="./assets/js/libs/history.js"></script>
+    <!-- end of scripts -->
+    <!-- scripts -->
+    <script src="./assets/js/libs/modernizr.js"></script>
+    <!-- end of scripts -->
+    <!-- scripts -->
+    <script src="./assets/js/libs/page.js"></script>
+    <!-- end of scripts -->
+    <!-- scripts -->
+    <script src="./assets/js/libs/jquery-2.2.3.js"></script>
+    <!-- end of scripts -->
+    <!-- scripts -->
+    <script src="./assets/js/libs/backgroundvideo/backgroundvideo.js"></script>
+    <!-- end of scripts -->
+    <!-- scripts -->
+    <script src="./assets/js/libs/photoswipe/photoswipe.js"></script>
+    <!-- end of scripts -->
+    <!-- scripts -->
+    <script src="./assets/js/libs/photoswipe/photoswipe-ui-default.js"></script>
+    <!-- end of scripts -->
+    <!-- scripts -->
+    <script src="./assets/js/libs/device.js"></script>
+    <!-- end of scripts -->
+    <!-- scripts -->
+    <script src="./assets/js/libs/remodal/remodal.js"></script>
+    <!-- end of scripts -->
+    <!-- scripts -->
+    <script src="./assets/js/custom/slidenavigation.js"></script>
+    <!-- end of scripts -->
+    <!-- scripts -->
+    <script src="./assets/js/app.js"></script>
+    <!-- end of scripts -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /404.html
+Disallow: /assets
+Disallow: /docs
+Disallow: /php
+Sitemap: https://lenotrebistro.com/sitemap.xml
