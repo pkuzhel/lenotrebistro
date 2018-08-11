@@ -34,7 +34,8 @@ body,
 	color: #c69c6d;
 }
 
-.widget .cat-item {
+.widget .cat-item,
+.widget > ul > li > a {
 	text-transform: uppercase
 }
 
