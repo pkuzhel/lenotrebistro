@@ -1,0 +1,52 @@
+@import url('//fonts.googleapis.com/css?family=Montserrat');
+
+body,
+.site-title > a,
+.site-description,
+#site-primary-menu.sf-menu > .menu-item > a,
+.widget > .widget-title,
+.site-column-content > .site-column-wrapper > .page-title,
+#site-main .site-column-content > .site-column-wrapper > .page-title.archives-title {
+  font-family: 'Montserrat', sans-serif
+}
+
+#site-primary-menu.sf-menu > .menu-item > a {
+  color: white;
+}
+
+#site-primary-menu.sf-menu > .menu-item.current-menu-item > a {
+  color: #c69c6d
+}
+
+#site-primary-nav > .site-section-wrapper-primary-menu {
+  background-color: #101e4b;
+}
+
+.site-title > a {
+  color: #101e4b;
+}
+
+.page-title:after {
+	display: none
+}
+
+.entry-descriptor > .entry-descriptor-span > .entry-date {
+	color: #c69c6d;
+}
+
+.widget .cat-item {
+	text-transform: uppercase
+}
+
+.widget .cat-item.current-cat > a {
+	color: #c69c6d;
+	text-decoration: none;
+}
+
+#site-column-content.site-column {
+	width: 100%;
+}
+
+.site-credit > .theme-credit {
+	display: none;
+}
