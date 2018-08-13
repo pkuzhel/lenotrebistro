@@ -44,3 +44,25 @@ i.back-to-top-icon {
   height: 80px;
   width: 80px;
 }
+
+.post-date {
+  color: #6c9bae;
+  font-family: 'merriweather-italic', serif;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+}
+
+.post-title {
+  color: white;
+  font-family: 'merriweather-italic', serif;
+  font-size: 1.4rem;
+  margin: 1em 0 0 0;
+}
+
+.post {
+  font-size: 1.25rem;
+}
+
+.hide {
+  display: none;
+}
