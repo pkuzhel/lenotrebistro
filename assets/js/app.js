@@ -10,6 +10,64 @@
  */
 
 (function ($) {
+  const pageFunctions = {
+    blog: function() {
+      const postsByCategories = {};
+
+      $.ajax("//lnbblog.com/wp-json/wp/v2/categories/", {
+        success: function(categories, status) {
+          $.ajax("//lnbblog.com/wp-json/wp/v2/posts/", {
+            success: function(posts, status) {
+              categories.forEach(function(category) {
+                postsByCategories[category.name] = {
+                  id: category.id,
+                  posts: posts.filter(function(post) {
+                    return post.categories.includes(category.id);
+                  }),
+                }
+              });
+              delete postsByCategories["Uncategorized"];
+
+              const postsUl = $(".posts");
+
+              const order = ["Events", "Food &amp; Drink", "Diary"];
+
+              order.forEach(function(categoryName) {
+                const listItem = $("<li></li>");
+                postsUl.append(listItem);
+
+                const divider = $("<div></div>")
+                listItem.append(divider);
+                divider.addClass("top");
+
+                const title = $(`<h3 class="title"></h3>`).html(categoryName)
+                divider.append(title);
+
+                postsByCategories[categoryName].posts.forEach(function(post) {
+                  const dateOptions = options = { year: 'numeric', month: 'long', day: 'numeric' };
+                  const postTitle = $(`<div class="post-title"></div>`).html(post.title.rendered);
+                  const postDate = $(`<div class="post-date">${new Date(post.date_gmt).toLocaleDateString("en-CA", dateOptions)}</div>`)
+                  listItem.append(postTitle).append(postDate);
+                  const postHtml = $(post.excerpt.rendered).addClass("post").append(` <a href="${post.link}">Read more</a>`)
+                  listItem.append(postHtml);
+                });
+
+              });
+
+              postsUl.removeClass("hide");
+            },
+            error: function(request, status, error) {
+              console.log("error", status, error);
+            }
+          });
+        },
+        error: function(request, status, error) {
+          console.log("error1", status, error);
+        }
+      });
+
+    },
+  }
 
   var backToTop = function () {
     $(".menu").off();
@@ -157,6 +215,12 @@
                         supportsTransition  = App.detectCssFeature('transition'),
                         wrapper             = $('#wrapper');
 
+                    Object.keys(pageFunctions).map(function(key){
+                      if(ctx.path.includes(key)) {
+                        pageFunctions[key]();
+                      }
+                    })
+
                     if (ctx.init) {
                         /* Activates the javascript for the current page */
                         App.activatePage();
@@ -260,8 +324,6 @@
                     }
                 }
             }
-
-
 
             /* Transition action */
             $('a', '#wrapper').on('click', function(e) {

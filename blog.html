@@ -74,7 +74,7 @@
                         <section>
                           <p>
                             We are delighted to introduce you to our blog. A space where we share our stories behind the scene.
-                            A place where you can find our "Beef Tartare" recipe or get to know us. <a href="http://lnbblog.com/">Find our blog here</a>.
+                            A place where you can find our "Beef Tartare" recipe or get to know us. <a href="//lnbblog.com/">Find our blog here</a>.
                           </p>
                         </section>
 
@@ -159,7 +159,7 @@
 
                     <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
-                    <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                    <!-- Preloader demo //codepen.io/dimsemenov/pen/yyBWoR -->
                     <div class="pswp__preloader">
                         <div class="pswp__preloader__icn">
                             <div class="pswp__preloader__cut">
@@ -222,58 +222,65 @@
     <script src="./assets/js/app.js"></script>
     <!-- end of scripts -->
     <script>
-      const postsByCategories = {};
-      $.ajax("http://lnbblog.com/wp-json/wp/v2/categories/", {
-        success: function(categories, status) {
-          $.ajax("http://lnbblog.com/wp-json/wp/v2/posts/", {
-            success: function(posts, status) {
-              categories.forEach(function(category) {
-                postsByCategories[category.name] = {
-                  id: category.id,
-                  posts: posts.filter(function(post) {
-                    return post.categories.includes(category.id);
-                  }),
+      $(".content").ready(
+        function() {
+          console.log("ready...");
+          console.log("getting blogs...");
+          const postsByCategories = {};
+
+          $.ajax("//lnbblog.com/wp-json/wp/v2/categories/", {
+            success: function(categories, status) {
+              $.ajax("//lnbblog.com/wp-json/wp/v2/posts/", {
+                success: function(posts, status) {
+                  categories.forEach(function(category) {
+                    postsByCategories[category.name] = {
+                      id: category.id,
+                      posts: posts.filter(function(post) {
+                        return post.categories.includes(category.id);
+                      }),
+                    }
+                  });
+                  delete postsByCategories["Uncategorized"];
+
+                  const postsUl = $(".posts");
+
+                  const order = ["Events", "Food &amp; Drink", "Diary"];
+
+                  order.forEach(function(categoryName) {
+                    const listItem = $("<li></li>");
+                    postsUl.append(listItem);
+
+                    const divider = $("<div></div>")
+                    listItem.append(divider);
+                    divider.addClass("top");
+
+                    const title = $(`<h3 class="title"></h3>`).html(categoryName)
+                    divider.append(title);
+
+                    postsByCategories[categoryName].posts.forEach(function(post) {
+                      const dateOptions = options = { year: 'numeric', month: 'long', day: 'numeric' };
+                      const postTitle = $(`<div class="post-title"></div>`).html(post.title.rendered);
+                      const postDate = $(`<div class="post-date">${new Date(post.date_gmt).toLocaleDateString("en-CA", dateOptions)}</div>`)
+                      listItem.append(postTitle).append(postDate);
+                      const postHtml = $(post.excerpt.rendered).addClass("post").append(` <a href="${post.link}">Read more</a>`)
+                      listItem.append(postHtml);
+                    });
+
+                  });
+
+                  postsUl.removeClass("hide");
+                },
+                error: function(request, status, error) {
+                  console.log("error", status, error);
                 }
               });
-              delete postsByCategories["Uncategorized"];
-
-              const postsUl = $(".posts");
-
-              const order = ["Events", "Food &amp; Drink", "Diary"];
-
-              order.forEach(function(categoryName) {
-                const listItem = $("<li></li>");
-                postsUl.append(listItem);
-
-                const divider = $("<div></div>")
-                listItem.append(divider);
-                divider.addClass("top");
-
-                const title = $(`<h3 class="title"></h3>`).html(categoryName)
-                divider.append(title);
-
-                postsByCategories[categoryName].posts.forEach(function(post) {
-                  const dateOptions = options = { year: 'numeric', month: 'long', day: 'numeric' };
-                  const postTitle = $(`<div class="post-title"></div>`).html(post.title.rendered);
-                  const postDate = $(`<div class="post-date">${new Date(post.date_gmt).toLocaleDateString("en-CA", dateOptions)}</div>`)
-                  listItem.append(postTitle).append(postDate);
-                  const postHtml = $(post.excerpt.rendered).addClass("post").append(` <a href="${post.link}">Read more</a>`)
-                  listItem.append(postHtml);
-                });
-
-              });
-
-              postsUl.removeClass("hide");
             },
             error: function(request, status, error) {
-              console.log("error", status, error);
+              console.log("error1", status, error);
             }
-          });
-        },
-        error: function(request, status, error) {
-          console.log("error1", status, error);
+          })
         }
-      })
+      )
     </script>
 
 </body>
