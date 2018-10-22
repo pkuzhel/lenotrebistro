@@ -67,6 +67,46 @@
       });
 
     },
+    events: function() {
+      const postsByCategories = {};
+
+      $.ajax("//lnbblog.com/wp-json/wp/v2/categories/", {
+        success: function(categories, status) {
+          $.ajax("//lnbblog.com/wp-json/wp/v2/posts/", {
+            success: function(posts, status) {
+              categories.forEach(function(category) {
+                postsByCategories[category.name] = {
+                  id: category.id,
+                  posts: posts.filter(function(post) {
+                    return post.categories.includes(category.id);
+                  }),
+                }
+              });
+              delete postsByCategories["Uncategorized"];
+
+              const postsUl = $(".event-posts");
+
+              postsByCategories["Events"].posts.forEach(function(post) {
+                const dateOptions = options = { year: 'numeric', month: 'long', day: 'numeric' };
+                const postTitle = $(`<div class="post-title"></div>`).html(post.title.rendered);
+                const postDate = $(`<div class="post-date">${new Date(post.date_gmt).toLocaleDateString("en-CA", dateOptions)}</div>`)
+                postsUl.append(postTitle).append(postDate);
+                const postHtml = $(post.excerpt.rendered).addClass("post").append(` <a href="${post.link}">Read more</a>`)
+                postsUl.append(postHtml);
+              });
+
+              postsUl.removeClass("hide");
+            },
+            error: function(request, status, error) {
+              console.log("error", status, error);
+            }
+          });
+        },
+        error: function(request, status, error) {
+          console.log("error1", status, error);
+        }
+      });
+    },
   }
 
   var backToTop = function () {
@@ -219,10 +259,12 @@
                       if(ctx.path.includes(key)) {
                         pageFunctions[key]();
                       }
-                    })
+                    });
+
 
                     if (ctx.init) {
                         /* Activates the javascript for the current page */
+                        addSharedContent();
                         App.activatePage();
                         next();
                     } else {

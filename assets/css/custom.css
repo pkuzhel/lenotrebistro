@@ -66,3 +66,46 @@ i.back-to-top-icon {
 .hide {
   display: none;
 }
+
+.icon-img {
+  width: 48px;
+}
+
+.icon-margin-half {
+  margin: 6px 0;
+}
+
+.nudge {
+  display: none;
+}
+
+/* .nudge {
+  background-color: #C69C6D;
+  color: white;
+  font-size: 1.25rem;
+  padding: 1rem;
+  position: absolute;
+  text-decoration: underline;
+  text-transform: uppercase;
+  z-index: 1000;
+}
+
+@media only screen and (max-width: 769px) {
+  .nudge {
+    border-radius: 0 0 1rem 1rem;
+    right: -71px;
+    top: 30%;
+    transform: rotate(90deg);
+  }
+}
+
+@media only screen and (min-width: 770px) {
+  .nudge {
+    border-radius: 0 0 1rem 1rem;
+    right: 10%;
+    text-decoration: underline;
+    text-transform: uppercase;
+    top: 0;
+    transform: none;
+  }
+} */

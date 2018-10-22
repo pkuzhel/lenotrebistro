@@ -3,28 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Le Notre Bistro | Blog</title>
-    <meta name="description" content="Read our behind the scene stories">
+    <title>Le Notre Bistro | Bar</title>
+    <meta name="description" content="We love wine more than anything, but we also offer a well crafted cocktail selection. Bring your own wine - $40, on Wednesdays - corkage is Free (up 2 bottles)">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.ico">
 
     <!-- mobile setup -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <meta name="apple-mobile-web-app-title" content="Le Notre Bistro" />
 
     <!-- stylesheet -->
+    <link rel="stylesheet" href="./assets/css/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/style-default.css">
     <link rel="stylesheet" href="./assets/css/custom.css">
 
-
-    <!-- Page description -->
-    <meta name="description" content="">
-
     <!-- Facebook -->
-    <meta property="og:title" content="About" />
+    <!-- <meta property="og:title" content="sweets" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="./about.html/" />
-    <meta property="og:description" content="Here the excerp for this page" />
+    <meta property="og:url" content="./sweets.html/" />
+    <meta property="og:description" content="" /> -->
 
+    <!-- Twitter -->
+    <!-- <meta name="twitter:title" content="sweets" />
+    <meta name="twitter:description" content="" /> -->
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -52,39 +54,61 @@
 
     <div id="wrapper">
         <!-- main content -->
-        <main>
+        <main class="brunch">
             <!-- The header for content -->
             <header class="detail">
                 <a href="/" class="back" data-transition="slide-from-top">
                     <span></span>
                 </a>
                 <section>
-                    <h1>Reading is a Conversation</h1>
+                    <h1>Shake, Stir, Pour</h1>
                 </section>
             </header>
             <!-- end header -->
             <div class="content-wrap">
                 <div class="content">
-                    <i class="icon bg icon-Book"></i>
-                    <section>
-                        <header>
-                            <h2>Blog</h2>
-                            <h4 class="serif">Maitre D' Diary</h4>
-                        </header>
-                        <section>
-                          <p>
-                            We are delighted to introduce you to our blog. A space where we share our stories behind the scene.
-                            A place where you can find our "Beef Tartare" recipe or get to know us. <a href="//lnbblog.com/">Find our blog here</a>.
-                          </p>
-                        </section>
-
-                        <ul class="posts price-list hide">
-
+                    <span class="icon bg">
+                      <i class="fa fa-2x icon-margin-half"><img class="icon-img" src="assets/img/icons/egg.svg" /></i>
+                    </span>
+                    <header class="with-subnav">
+                        <ul>
+                            <li class="btn ">
+                                <a href="./menu.html" data-transition="slide-left">
+                                    <h4>dinner</h4>
+                                </a>
+                            </li>
+                            <li class="btn active">
+                                <a href="./brunch.html">
+                                  <h4>brunch</h4>
+                                </a>
+                            </li>
+                            <li class="btn ">
+                                <a href="./bar.html" data-transition="slide-left">
+                                  <h4>bar &amp; wine</h4>
+                                </a>
+                            </li>
                         </ul>
-                    </section>
+                    </header>
+
+                    <!-- menu content -->
+                    <header>
+                        <h3>• BRUNCH •</h3>
+                    </header>
+
+                    <aside class="notice">
+                            <i class="icon bg inverted icon-Notification"></i>
+                            <h3>Chef&#039;s notice</h3>
+                            <p>Starting October 21st we are delighted to bring you Brunch with our monthly set menu</p>
+                    </aside>
+
+                    <ul class="price-list">
+                        <!-- menu goes here -->
+                    </ul>
+                    <!-- end menu content -->
                 </div>
             </div>
         </main>
+        <div class="back-to-top"><i class="fa fa-angle-up back-to-top-icon"></i></div>
         <!-- end of main content -->
     </div>
 
@@ -159,7 +183,7 @@
 
                     <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
-                    <!-- Preloader demo //codepen.io/dimsemenov/pen/yyBWoR -->
+                    <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
                     <div class="pswp__preloader">
                         <div class="pswp__preloader__icn">
                             <div class="pswp__preloader__cut">
@@ -221,6 +245,27 @@
     <!-- scripts -->
     <script src="./assets/js/app.js"></script>
     <!-- end of scripts -->
+    <script type="text/javascript">
+      $('document').ready(function() {
+        $(".brunch").scroll(function () {
+        });
+        $(".brunch").scroll(function () {
+          if ($(this).scrollTop() > 50) {
+            $('.back-to-top-bar').fadeIn();
+          } else {
+            $('.back-to-top-bar').fadeOut();
+          }
+        });
+        // scroll body to 0px on click
+        $('.back-to-top-bar').click(function () {
+          $('.brunch').animate({
+            scrollTop: 0
+          }, 800);
+          return false;
+        });
+      })
+    </script>
+
 </body>
 
 </html>
