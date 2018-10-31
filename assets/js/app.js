@@ -48,7 +48,7 @@
                   const postTitle = $(`<div class="post-title"></div>`).html(post.title.rendered);
                   const postDate = $(`<div class="post-date">${new Date(post.date_gmt).toLocaleDateString("en-CA", dateOptions)}</div>`)
                   listItem.append(postTitle).append(postDate);
-                  const postHtml = $(post.excerpt.rendered).addClass("post").append(` <a href="${post.link}">Read more</a>`)
+                  const postHtml = $(post.excerpt.rendered).addClass("post").append(` <a target="_blank" href="${post.link}">Read more</a>`)
                   listItem.append(postHtml);
                 });
 
@@ -88,10 +88,15 @@
 
               postsByCategories["Events"].posts.forEach(function(post) {
                 const dateOptions = options = { year: 'numeric', month: 'long', day: 'numeric' };
+                const listItem = $("<li></li>");
+
+                const divider = $("<div></div>")
+                divider.addClass("top");
                 const postTitle = $(`<div class="post-title"></div>`).html(post.title.rendered);
                 const postDate = $(`<div class="post-date">${new Date(post.date_gmt).toLocaleDateString("en-CA", dateOptions)}</div>`)
-                postsUl.append(postTitle).append(postDate);
-                const postHtml = $(post.excerpt.rendered).addClass("post").append(` <a href="${post.link}">Read more</a>`)
+                postsUl.append(listItem);
+                listItem.append(divider).append(postTitle).append(postDate);
+                const postHtml = $(post.excerpt.rendered).addClass("post").append(` <a target="_blank" href="${post.link}">Read more</a>`)
                 postsUl.append(postHtml);
               });
 
