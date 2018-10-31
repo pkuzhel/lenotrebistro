@@ -10,6 +10,10 @@
  */
 
 (function ($) {
+  var inst = $('[data-remodal-id=modal]').remodal();
+
+  setTimeout(function(){ inst.open() }, 3000);
+
   const pageFunctions = {
     blog: function() {
       const postsByCategories = {};
